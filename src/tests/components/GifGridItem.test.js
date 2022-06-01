@@ -1,0 +1,40 @@
+import React from "react";
+import { shallow } from "enzyme";
+import { GifGridItem } from "../../components/GifGridItem";
+
+describe('Pruebas en <GifGridItem />', () => {
+
+    const title = 'Un título';
+    const url = 'https://localhost/algo.jpg'
+    const wrapper = shallow(<GifGridItem title={title} url={url} />);
+
+    test('debe de mostrar el componente correctamente ', () => {
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    test('debe de tener un párrafo con el title', () => {
+
+        const p = wrapper.find('p');
+        expect(p.text().trim()).toBe(title);
+    });
+
+    test('debe de tener la imagen igual al ulr y alt de los props', () => {
+
+        const img = wrapper.find('img');
+        expect(img.prop('src')).toBe(url);
+        expect(img.prop('alt')).toBe(title);
+    });
+
+    test('debe de tener animate_fadeIn', () => {
+
+        const div = wrapper.find('div');
+        const className = div.prop('className');
+        const css = 'animate__fadeIn';
+
+        expect(className.includes(css)).toBe(true);
+
+        // expect(div.prop('className')).toContain(css);
+    });
+
+})
