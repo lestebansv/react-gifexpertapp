@@ -1,6 +1,6 @@
-import React from "react";
-import { shallow } from "enzyme";
-import { GifGridItem } from "../../components/GifGridItem";
+import React from 'react';
+import { shallow } from 'enzyme';
+import { GifGridItem } from '../../components/GifGridItem';
 
 describe('Pruebas en <GifGridItem />', () => {
 
@@ -33,8 +33,7 @@ describe('Pruebas en <GifGridItem />', () => {
         const css = 'animate__fadeIn';
 
         expect(className.includes(css)).toBe(true);
-
-        // expect(div.prop('className')).toContain(css);
+        expect(div.prop('className')).toContain(css);
     });
 
 })
